@@ -21,3 +21,18 @@ app.post('/pacientes/cadastro', (request, response) => {
     return response.send(request.body)
 })
 
+
+const medicos = [];
+
+app.post('/Medicos/cadastrar', (request, response) => {
+    const validarMedico = usuarios.find((medicos) => medicos.crm == request.body.crm)
+        if (validarMedico){
+            return response.send("Erro: Medico ja existe.")}
+        
+        medicos.push({
+        id: uuid.v4(),
+        nome: request.body.nome,
+        crm: request.body.crm
+    })
+    return response.send("Medico cadastrado com sucesso.")
+})
