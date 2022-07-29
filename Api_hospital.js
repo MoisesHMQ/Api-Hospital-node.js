@@ -36,12 +36,12 @@ app.post('/Medicos/cadastrar', (request, response) => {
     })
     return response.send("Medico cadastrado com sucesso.")
 })
-app.post('/login', (request, response) => {
+app.post('/login/pacientes', (request, response) => {
     console.log(request.body);
-    if (request.body.cpf == request.body.cpf && request.body.senha == request.body.senha);{
+    if (request.body.cpf == request.body.cpf && request.body.senha == request.body.senha){
         return response.send("Logado, seja bem vindo")
     }
     else  {
-        return response.send("erro: usuario não existe")
+        return response.send("erro: Cpf ou Senha incorretos")
     }
 })
