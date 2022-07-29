@@ -59,3 +59,8 @@ app.get('/listar/pacientes', (request, response) => {
     console.log(request.body);
     return response.json(pacientes)
 })
+
+app.get('/listar/medicos', (request, response) => {
+    console.log(request.body);
+    return response.json(medicos)
+})
