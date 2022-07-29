@@ -5,8 +5,8 @@ var uuid = require('uuid');
 
 app.use(express.json());
 
-const pacientes = [];
-const medicos = [];
+const pacientes = []
+const medicos = []
 
 app.post('/pacientes/cadastro', (request, response) => {
     const validarPacientes = pacientes.find((validacao) => validacao.cpf == request.body.cpf)
