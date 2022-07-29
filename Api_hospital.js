@@ -23,7 +23,7 @@ app.post('/pacientes/cadastro', (request, response) => {
 })
 
 app.post('/Medicos/cadastrar', (request, response) => {
-    const validarMedico = usuarios.find((medicos) => medicos.crm == request.body.crm)
+    const validarMedico = medicos.find((medicos) => medicos.crm == request.body.crm)
         if (validarMedico){
             return response.send("Erro: Medico ja existe.")}
         
@@ -70,4 +70,11 @@ app.delete('/excluir', (request,response) => {
     const excluirPacientes = pacientes.splice(id,1)
         
     return response.send(excluirPacientes)
+})
+
+app.delete('/excluir', (request,response) => {
+    const id = medicos.indexOf('id');
+    const excluirMedicos = medicos.splice(id,1)
+        
+    return response.send(excluirMedicos)
 })
