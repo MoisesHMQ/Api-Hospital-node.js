@@ -6,6 +6,7 @@ var uuid = require('uuid');
 app.use(express.json());
 
 const pacientes = [];
+const medicos = [];
 
 app.post('/pacientes/cadastro', (request, response) => {
     const validarPacientes = pacientes.find((validacao) => validacao.cpf == request.body.cpf)
@@ -20,9 +21,6 @@ app.post('/pacientes/cadastro', (request, response) => {
     })
     return response.send(request.body)
 })
-
-
-const medicos = [];
 
 app.post('/Medicos/cadastrar', (request, response) => {
     const validarMedico = usuarios.find((medicos) => medicos.crm == request.body.crm)
@@ -55,4 +53,9 @@ app.post('/login/medicos', (request, response) => {
     else  {
         return response.send("erro: Crm ou Senha incorretos")
     }
+})
+
+app.get('/listar/pacientes', (request, response) => {
+    console.log(request.body);
+    return response.json(pacientes)
 })
