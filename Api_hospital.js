@@ -46,15 +46,14 @@ app.post('/login/pacientes', (request, response) => {
 })
 
 app.post('/login/medicos', (request, response) => {
-    console.log(request.body);
-    if (request.body.crm == request.body.crm && request.body.senha == request.body.senha){
-        return response.send("Logado: seja bem vindo")
+    const loginMedicos = medicos.find((med) => med.crm == request.body.crm && med.senha == request.body.senha)
+    if(loginMedicos){
+        return response.send("status: Seja bem vindo")
     }
-    else  {
+    else{
         return response.send("erro: Crm ou Senha incorretos")
     }
-})
-
+    })
 app.get('/listar/pacientes', (request, response) => {
     console.log(request.body);
     return response.json(pacientes)
