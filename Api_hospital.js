@@ -78,3 +78,7 @@ app.delete('/excluir', (request,response) => {
         
     return response.send(excluirMedicos)
 })
+
+app.listen(4000, () => {
+    console.log('Status: Servidor Online.')
+})
