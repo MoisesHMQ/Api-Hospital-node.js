@@ -19,7 +19,7 @@ app.post('/pacientes/cadastro', (request, response) => {
         cpf: request.body.cpf,
         senha:request.bory.senha
     })
-    return response.send(request.body)
+    return response.send("Status: Paciente cadastrado com sucesso.")
 })
 
 app.post('/Medicos/cadastrar', (request, response) => {
