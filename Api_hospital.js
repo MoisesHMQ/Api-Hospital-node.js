@@ -32,16 +32,27 @@ app.post('/Medicos/cadastrar', (request, response) => {
         medicos.push({
         id: uuid.v4(),
         nome: request.body.nome,
-        crm: request.body.crm
+        crm: request.body.crm,
+        senha: request.body.senha
     })
     return response.send("Medico cadastrado com sucesso.")
 })
 app.post('/login/pacientes', (request, response) => {
     console.log(request.body);
     if (request.body.cpf == request.body.cpf && request.body.senha == request.body.senha){
-        return response.send("Logado, seja bem vindo")
+        return response.send("Logado: seja bem vindo")
     }
     else  {
         return response.send("erro: Cpf ou Senha incorretos")
+    }
+})
+
+app.post('/login/medicos', (request, response) => {
+    console.log(request.body);
+    if (request.body.crm == request.body.crm && request.body.senha == request.body.senha){
+        return response.send("Logado: seja bem vindo")
+    }
+    else  {
+        return response.send("erro: Crm ou Senha incorretos")
     }
 })
