@@ -64,3 +64,10 @@ app.get('/listar/medicos', (request, response) => {
     console.log(request.body);
     return response.json(medicos)
 })
+
+app.delete('/excluir', (request,response) => {
+    const id = pacientes.indexOf('id');
+    const excluirPacientes = pacientes.splice(id,1)
+        
+    return response.send(excluirPacientes)
+})
